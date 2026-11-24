@@ -6,6 +6,16 @@ A Windows desktop app and command-line tool that checks Relativity Short Message
 files on your own PC before they are loaded into Relativity. It runs entirely offline: no
 telemetry, tracking or ads.
 
+** Why?
+
+In eDiscovery, chat and text messages are often the most important evidence in a matter. They are also the least standardized: every forensic provider builds RSMF files its own way, and defects are common and hard to predict.
+
+Those defects usually surface only after the data is loaded, during review. Where hosting is always billed on peak data volume, that means paying to process and store bad files before anyone knows they are bad.
+
+This app moves the check to the front. It inspects RSMF files on a local PC before they are loaded, explains each defect in plain language, and produces a findings list to send back to whoever made the files. Where formal review is not needed, it can also convert conversations to PDF.
+
+It is free and open source under the MIT License, runs entirely offline, and sends no data anywhere. No telemetry, no tracking, no ads. Free and open source. 
+
 ## Get the app
 
 **Portable ZIP (no installation):**
