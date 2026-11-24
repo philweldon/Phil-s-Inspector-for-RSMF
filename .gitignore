@@ -1,0 +1,29 @@
+bin/
+obj/
+*.user
+.vs/
+publish/
+artifacts/
+buildlogs/
+nuget-offline/
+sync/
+# only the two most recent versions are published; older release records stay on the build PC
+releases/*
+!releases/INDEX.md
+!releases/v1.25.0/
+!releases/v1.24.1/
+CHANGELOG-full.md
+docs/ROLLBACK.md
+releases/**/*.zip
+# unzipped copies of each release (large, and older ones carry build-PC paths)
+releases/*/RsmfInspector-*/
+# raw self-check pictures: they show folder paths from the build PC
+packaging/store-listing/src/
+*.log
+# kept by the author, not published: saved reference copies, working notes, a template page
+docs/reference/
+PROGRESS.md
+BACKLOG.md
+packaging/store-listing/privacy.html
+__pycache__/
+publish/

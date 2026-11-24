@@ -1,0 +1,32 @@
+X-RSMF-Version: 2.0.0
+X-RSMF-Generator: RsmfInspector fixture generator
+X-RSMF-EventCount: 2
+From: Scrooge McDuck <scrooge.mcduck@moneybin.invalid>
+To: Bruce Wayne <bruce.wayne@waynelegal.invalid>
+Subject: Privileged and confidential (do not forward to Kent)
+Content-Type: multipart/mixed; boundary="_RSMF_Boundary_Delimiter_"
+MIME-Version: 1.0
+
+--_RSMF_Boundary_Delimiter_
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+
+Synthetic test conversation.
+--_RSMF_Boundary_Delimiter_
+Content-Type: application/zip; name="rsmf.zip"
+Content-Disposition: attachment; filename="rsmf.zip"
+Content-Transfer-Encoding: base64
+
+UEsDBBQABgAIADs4eF2KNE7qzQEAAKYCAAASAAAAcnNtZl9tYW5pZmVzdC5qc29uqlYqSy0qzszP
+U7JSMtIz0DNQ0lEqSCwqyUzOLEjMKylWsoquVspMUbJSCjBU0lFKySwuyEmsVLJSCk4uys9PT1Xw
+TXYpTc5WqtWBKTNCURZTamBg5GSooGFqaqqpYGBooGtgaGmpVBuro5ScnweyO7EkMz8PyR5nVHtC
+MmB2KOQmlpSkFiloFBRllmXmpKanpmiCXJuTWJKWX5QLcpNvsJKOUkllQaqSlVJKZlFqcglIAap3
+IB4JMFICOaG0uCQ/JTMR5PsAQ7CrUstSYd6GGpSbWlycmJ6qpKOUlJ8C8rpTUWlyqo5CokJRakF+
+EchJeYm5qSkKzjmJRdkK3ql5JQrloLBTKMlXyM7LL1coz6hUyK1UyElNSU8tUshILFZIVEjOSCwA
+aU1OzMkB6S1KTSzJLEtV8MvPS8tMBoWJHqrbAYNFAXKwKVkpgYOrJDM3tbgkMbcAFIsGRma6Bsa6
+BsYhhiZWBgZWBgZR4OjB5R1HhZTMssy8dIWk/MSiFIXMYoW8/BKw75Lz0/Myi1NTFBKTk/NL80pA
+ijLzikuKSnNT80r0FDwVkjNSk7NTU/QUQsozk1P1FBxLFPIy0zNKsLgdlC5IdLspxO2xtQBQSwEC
+FAAUAAYACAA7OHhdijRO6s0BAACmAgAAEgAAAAAAAAAAAAAAAAAAAAAAcnNtZl9tYW5pZmVzdC5q
+c29uUEsFBgAAAAABAAEAQAAAAP0BAAAAAA==
+
+--_RSMF_Boundary_Delimiter_--

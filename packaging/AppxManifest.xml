@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Microsoft Store package manifest. Identity Name, Publisher and PublisherDisplayName are the values
+  Partner Center shows under Product identity and must match them exactly.
+  Version must be the version in Directory.Build.props followed by ".0"; the pack command in build.cmd
+  refuses to build the package when the two disagree.
+-->
+<Package
+  xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+  xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+  xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3"
+  xmlns:desktop="http://schemas.microsoft.com/appx/manifest/desktop/windows10"
+  xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
+  IgnorableNamespaces="uap uap3 desktop rescap">
+
+  <Identity
+    Name="RunDevPhil.PhilsInspectorforRSMFfiles"
+    Publisher="CN=D06AF57B-8E6E-4C02-83EA-B8F4F1C03F74"
+    Version="1.25.0.0"
+    ProcessorArchitecture="x64" />
+
+  <Properties>
+    <DisplayName>Phil's Inspector for RSMF files</DisplayName>
+    <PublisherDisplayName>RunDevPhil</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.17763.0" MaxVersionTested="10.0.26100.0" />
+  </Dependencies>
+
+  <Resources>
+    <Resource Language="en-US" />
+  </Resources>
+
+  <Applications>
+    <Application Id="RsmfInspector" Executable="RsmfInspector.exe" EntryPoint="Windows.FullTrustApplication">
+      <uap:VisualElements
+        DisplayName="Phil's Inspector for RSMF files"
+        Description="Local inspection and QC of Relativity Short Message Format (.rsmf) files"
+        BackgroundColor="transparent"
+        Square150x150Logo="Assets\Square150x150Logo.png"
+        Square44x44Logo="Assets\Square44x44Logo.png" />
+      <Extensions>
+        <!-- Lets "RsmfInspector scan ..." and "RsmfInspector explain ..." be typed at a command prompt. -->
+        <uap3:Extension Category="windows.appExecutionAlias" Executable="RsmfInspector.exe" EntryPoint="Windows.FullTrustApplication">
+          <uap3:AppExecutionAlias>
+            <desktop:ExecutionAlias Alias="RsmfInspector.exe" />
+          </uap3:AppExecutionAlias>
+        </uap3:Extension>
+      </Extensions>
+    </Application>
+  </Applications>
+
+  <Capabilities>
+    <rescap:Capability Name="runFullTrust" />
+  </Capabilities>
+</Package>

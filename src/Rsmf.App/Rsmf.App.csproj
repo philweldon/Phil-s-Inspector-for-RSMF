@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <AssemblyName>RsmfInspector</AssemblyName>
+    <RootNamespace>Rsmf.App</RootNamespace>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
+    <!-- WPF text layout needs culture data; invariant-globalization mode makes every window fail at start-up. -->
+    <InvariantGlobalization>false</InvariantGlobalization>
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+    <!-- The exe, title-bar and taskbar icon: a small red toy brick drawn by tools/make-icon.py. -->
+    <ApplicationIcon>brick.ico</ApplicationIcon>
+    <!-- The same exe also runs the command line (scan / explain / version), so the app has two Main methods to choose from. -->
+    <StartupObject>Rsmf.App.App</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Resource Include="brick.ico" />
+    <Compile Include="..\Rsmf.Cli\Program.cs" Link="Cli\Program.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Rsmf.Core\Rsmf.Core.csproj" />
+  </ItemGroup>
+</Project>

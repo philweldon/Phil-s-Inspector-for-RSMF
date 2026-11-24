@@ -1,0 +1,18 @@
+<Project>
+  <PropertyGroup>
+    <!-- The single place the application version lives. -->
+    <Version>1.25.0</Version>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>12</LangVersion>
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
+    <Authors>Philip Weldon</Authors>
+    <Copyright>Copyright (c) 2026 Philip Weldon. MIT License.</Copyright>
+    <Product>Phil's Inspector for RSMF files</Product>
+    <!-- Keeps this PC's folder names (and so the Windows user name) out of the built files: without it
+         the compiler records the full path of each .pdb inside the .dll it builds. -->
+    <PathMap>$(MSBuildThisFileDirectory)=/_/</PathMap>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>rsmf-inspect</AssemblyName>
+    <RootNamespace>Rsmf.Cli</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Rsmf.Core\Rsmf.Core.csproj" />
+  </ItemGroup>
+</Project>

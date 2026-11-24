@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Download-only project: restores the NuGet packages RSMF Inspector needs into ..\..\nuget-offline -->
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="MimeKit" Version="4.*" />
+    <PackageReference Include="NodaTime" Version="3.*" />
+    <PackageReference Include="JsonSchema.Net" Version="7.*" />
+    <PackageReference Include="NJsonSchema" Version="11.*" />
+    <PackageReference Include="xunit" Version="2.9.*" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.8.*" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.*" />
+  </ItemGroup>
+</Project>

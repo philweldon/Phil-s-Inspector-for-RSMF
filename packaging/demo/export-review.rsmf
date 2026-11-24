@@ -1,0 +1,45 @@
+X-RSMF-Version: 2.0.0
+X-RSMF-Generator: make-demo-rsmf.py
+X-RSMF-BeginDate: 2026-03-03T14:02:00Z
+X-RSMF-EndDate: 2026-03-03T14:48:00Z
+X-RSMF-EventCount: 8
+From: Captain Deadline <captain.deadline@example.invalid>
+To: Kid Backup <kid.backup@example.invalid>
+Subject: Hero hotline
+Content-Type: multipart/mixed; boundary="_RSMF_Boundary_Delimiter_"
+MIME-Version: 1.0
+
+--_RSMF_Boundary_Delimiter_
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+
+Invented demo conversation.
+--_RSMF_Boundary_Delimiter_
+Content-Type: application/zip; name="rsmf.zip"
+Content-Disposition: attachment; filename="rsmf.zip"
+Content-Transfer-Encoding: base64
+
+UEsDBBQAAAAIAK2FdV3LOCwb9gIAAFwIAAASAAAAcnNtZl9tYW5pZmVzdC5qc29urVVLbtswEL3K
+RJtuHEH+xAm86cdB0R+QAglaoEUWFDm2BpZIgaTsOIEP0E2v0Cv2CB1KFmIhidMABgxb4tDD997M
+PN5FS7SOjI4m0SBO4iTqRaWwniSVQnsXTX7eRaQ4+rXPIUWuzMWaX6ei9II0nKNQOWnkIBaCcg7J
+JhSrbegN3oiizDEmvRQ5J9v02pyDTs7PpOCdkIuq3Mm2IBWn9eLDPNe9SBodGAjPHHbQTrtoP6A1
+kBm/RcqrfmZswZHvxi74VSLITHiO+XWJvK7IovQP1Wh0YODh7Mp5o0joRp4AB5fYqrZNVKBzYh5O
+TY3asjyCqwyBtypjX7n6ZMCb0lgPmXAgrKUlqhiuDHjeaHFJuAJrTHHURdTWZVeFlr0nPtqzYqG0
+yWB8nAz5c9UfTZLBJEl+8JZaqqJfF+QpuBcayPdgW+8Yzg2sglgoFzU4V9cEZpSj42/reLOxkKMo
+gftDWVEwLCnyfA05LRBy4TwEcK8fchm8nMuow2XQ5MQ63TPMLlvkjDmGLy2sQC+gZx4+s9hSk9Y4
+hwoKUprmmQehFWgTcvEPk+BYpT3lXNvKOiXW8UFqddrhN+Qni0LetzuPQhXo+awqUlePjjRVOK7/
+SPNy326u94oiBRfNaIzhQjfcgRyzdo70nFvBQUnSV5Y3fARXuZLHBGamyiHMGv/LgoBbKgGtNfYR
+DV5e4/5JR4PR3qryqNeIQ2+mLNVCmZWGdA22Yus4CJxxB84JPwnvhcwK7DjmjLRizdxxuj6uDy/1
+vONKT2xwdMvMxqPh/kq93VEZ3vPIbe2xV1NfUp4Hf9bsSJYdpMAiZYp17B5tDFMeR0fyIL066HeE
+GXdmcX/VLjM2iNBQ7Ik1xlYb8I0HNmZZW8vKksewWIDRdbAw/LAin3HrMR+0B7GWYdKhcxouJUXb
+Cj+SfU+mRphnJq+lPr38FsMnvlvYU0Inp5yVhbF8JUC4HdilVPDS4Fp///z+dYjSjc46XM+etJkM
++aj/8ZjrzT9QSwMEFAAAAAgArYV1XeinN3koAQAAgwIAABQAAABmaW5kaW5ncy1ieS1ydWxlLnBu
+Z+sM8HPn5ZLiYmBg4PX0cAliYGDMALJPcDABSa83b24wMDB5ebo4hlTcentnI+8hAwGHwKZNnmwJ
+8zqaFGOWLihyfKqoEfAsseFMkU5DimLjnJbvYh2W7vHXJ+gp8THMt5BiVJBpKGA4xMjBriADpcB8
+bMJ7DJ8aPX3E5GDB8JBBgA9MtTAL8EEpKB8uDGS0MP/YdI/jx8TLf+98Yzh/+rDuDWx6kIxysOhB
+cH+477PkKt03P+sxDrVQquHsp+2/SiVPX/rGUCx1h8kMu8uw6cTiYHThiJV17PsTdbxvM5/J/KCW
++BiXx0k1XoBPmXhHYNrRMEtPaZZNxamjXxauvW1606Jhb77MgbKbuJQT5dIFr1hncsjMvzB5Rxww
+cTF4uvq5rHNKaAIAUEsBAhQDFAAAAAgArYV1Xcs4LBv2AgAAXAgAABIAAAAAAAAAAAAAAIABAAAA
+AHJzbWZfbWFuaWZlc3QuanNvblBLAQIUAxQAAAAIAK2FdV3opzd5KAEAAIMCAAAUAAAAAAAAAAAA
+AACAASYDAABmaW5kaW5ncy1ieS1ydWxlLnBuZ1BLBQYAAAAAAgACAIIAAACABAAAAAA=
+--_RSMF_Boundary_Delimiter_--

@@ -1,0 +1,47 @@
+# Manual smoke test (Windows GUI)
+
+Run this as a **standard user** (no admin rights) on a clean Windows 10/11 x64 PC that does not
+have .NET installed and is disconnected from the network. It takes about ten minutes.
+
+You need the release ZIP and the fixture folder (`fixtures/`, produced by
+`RSMF_FIXTURES_OUT=<folder> dotnet test`; 26 `.rsmf` files plus `notes.txt` and `sub/image.png`).
+
+| # | Step | Expected result |
+|---|------|-----------------|
+| 1 | Unzip the release ZIP into `Documents\RsmfInspector-test`. | Folder contains `RsmfInspector.exe` (the only program file), `LICENSE.txt`, a few `.dll` files, `USER_GUIDE.md`, `RULES.md`. No installer runs. |
+| 2 | Double-click `RsmfInspector.exe`. (If SmartScreen appears, choose More info > Run anyway.) | A window opens within a few seconds. Title bar reads `Phil's Inspector for RSMF files <version>` (the version of the release under test). No UAC prompt, no network prompt, no download. |
+| 3 | Look at the Settings box. | Time zone shows `UTC`. Mode is "Calendar day and elapsed span (Rules A + B)". Size threshold is `2` (GB). Participant threshold is blank. Report folder is blank. The include box is unticked. |
+| 4 | Leave the report folder blank, set the time zone to `America/New_York`, click **Scan Folder...** and choose the `fixtures` folder. | The scan runs. When it finishes, `summary.txt` opens in Notepad. "Last report folder" shows a folder **beside** `fixtures` named `fixtures-rsmf-report-<date>-<time>-<6 characters>`. Nothing new appears inside `fixtures`. Close Notepad. |
+| 5 | Click **Browse...**, choose a new empty folder `Documents\rsmf-out`. Set the time zone to `America/New_York`. | The folder path appears in the report folder box. |
+| 6 | Click **Scan Folder...** and choose the `fixtures` folder. | The progress bar fills; status ends "Completed with exceptions: 26 checked; coverage incomplete." "Last report folder" shows a path inside `Documents\\rsmf-out` ending `run-<date>-<time>-<6 characters>`, and `summary.txt` opens in Notepad. |
+| 7 | Look at the grid. | 28 rows. `notes.txt` and `sub\image.png` are "Not an RSMF candidate". `valid-1.0.rsmf`, `valid-2.0.rsmf`, `UPPERCASE-EXT.RSMF` and `sub\nested-valid.rsmf` are "OK" with 3 events, 3 messages, 1 conversation, 2 participants and Time window PASS. `events-10001.rsmf` is "Errors" with LIMIT = 1. `events-10000.rsmf` is "OK". `midnight-crossing.rsmf` shows Time window FAIL. `invalid-timestamp.rsmf` shows INDETERMINATE. |
+| 8 | Set the category filter to **LIMIT**. | Only `events-10001.rsmf` remains; the count reads "1 of 28 file(s) shown". Set it back to "All categories". |
+| 9 | Set severity to **warning**. | Only files with at least one warning remain (including `broken-references.rsmf` and `offsetless-timestamps.rsmf`). Set it back to "All severities". |
+| 10 | Click **Show in Explorer**. | File Explorer opens the run folder. It contains `summary.txt`, `inventory.csv`, `findings.jsonl`, `metadata_coverage.csv`, `time_window_exceptions.csv`, `run.json`, `conversation_metrics.csv`. |
+| 11 | Open `summary.txt` in Notepad. | It states the size threshold 2 GB = 2,147,483,648 bytes, time zone America/New_York, "Sensitive values in reports: excluded", Discovered 28, RSMF candidates 26, and ends with the "does not certify" sentence. Searching for `SECRET-BODY-MARKER` in any report file finds nothing. |
+| 12 | Back in the app, double-click `valid-2.0.rsmf`. | A viewer window opens. Info line shows Version 2.0.0, 3 events (3 messages), 1 conversation, 2 participants, Time window PASS. No yellow banner. The conversation "Chat C1 (3 events)" is selected and three messages are listed oldest first; the first is from "Avery Example" at `2026-03-03 09:00:00 -05:00`. |
+| 13 | Scroll to the third message. | It lists "Attachment: photo.png (70 bytes)" and shows a tiny image beneath it. Nothing opens in another program. |
+| 14 | Type `reply` in the search box. | One message remains; the caption reads "1 of 3 events contain "reply"". Click **Clear**: all three return. |
+| 15 | Click each tab: Headers, Extracted text, Raw manifest, Findings, Metadata coverage. | Headers lists `X-RSMF-Version` first with value `2.0.0`. Extracted text shows "Synthetic test conversation." Raw manifest shows JSON text. Findings is empty ("Findings (0)"). Metadata coverage lists rows for header, file, participant, conversation and event levels. Close the viewer. |
+| 16 | Double-click `broken-references.rsmf`, open the **Findings** tab, double-click the rule 032 row. | The viewer switches to Conversations and selects the message whose text is "orphan reply". |
+| 17 | In the same viewer open **Metadata coverage**, click the `participant` / `avatar` row. | The list below shows `missing: participant:P1`. Close the viewer. |
+| 18 | Double-click `damaged-zip.rsmf`. | The viewer opens with a yellow banner saying rsmf.zip could not be opened and the manifest, conversations and attachments are unavailable. The Headers tab still lists the headers. The Findings tab is shown first and includes rule 006. Close the viewer. |
+| 19 | Double-click `damaged-mime.rsmf`. | Yellow banner says the file is not a parseable MIME message. No crash. Close the viewer. |
+| 20 | Double-click `events-10001.rsmf`. | The viewer opens in a few seconds and stays responsive; scrolling the 10,001 messages is smooth. Close the viewer. |
+| 21 | Change mode to "Elapsed span only (Rule B)", click **Scan Folder...**, choose `fixtures` again. | A second, different `run-...` folder is created. `midnight-crossing.rsmf` now shows Time window PASS; `span-just-over-24h.rsmf` still shows FAIL. |
+| 22 | Start another scan of `fixtures` and click **Cancel** as soon as the bar starts moving. | Status reads "Cancelled: N of 26 checked; reports written." A new run folder exists with all report files; its `run.json` has `"finalStatus": "cancelled (scan coverage incomplete)"`. (On a fast PC the scan may finish before you can cancel; that is not a failure.) |
+| 23 | Click **Open RSMF File...** and choose `fixtures\single-message.rsmf`. | A new run folder is written, the grid shows one row with status OK, and the viewer opens showing one message. |
+| 24 | Tick the include box, scan `fixtures` again, open that run's `findings.jsonl`. | Some lines now contain a `sensitiveDetail` field with message text; `summary.txt` says sensitive values are INCLUDED. Untick the box afterwards. |
+| 25 | Close the app. Check `Documents\RsmfInspector-test`. | No new files were created beside the program. The fixture files' modified dates are unchanged. |
+| 26 | Open a Command Prompt in `Documents\RsmfInspector-test` and run `start /wait RsmfInspector.exe --version`. | Prints `Phil's Inspector for RSMF files <version> (ruleset 1.0.0)` in the same Command Prompt. No window opens. |
+| 27 | Save a file `try.cmd` there containing `RsmfInspector.exe scan <fixtures folder> --out %USERPROFILE%\Documents\rsmf-out --tz America/New_York --quiet` and, on the next line, `echo exit code %ERRORLEVEL%`. Run `try.cmd`. | Prints the summary and "Reports written to: ...", then `exit code 1` (the fixtures contain error findings). No window opens. |
+| 28 | Start `RsmfInspector.exe` again and look at the left end of the title bar, the taskbar button and the file in File Explorer. | All three show a small red see-through toy brick instead of the plain Windows program icon. |
+| 29 | Click **Convert RSMF Folder to PDF...**, choose `fixtures`, read the message and click **OK**. | The bar moves and the status counts files and pages. It ends with "PDF: 21 of 26 file(s) converted, ... 5 not converted; see pdf_conversion_log.csv." The "Last run output" box shows a new `pdf-...` folder inside the output folder. The window stays usable throughout. |
+| 30 | Click **Show in Explorer** and open `valid-2.0.pdf`. | One page: the heading "Chat C1" with "SMS · direct" under it and three message bubbles with timestamps as written in the file (for example `2026-03-03T14:00:00Z`). There is no header, footer, page number, file name or tool name anywhere on the page, and the PDF's document properties show no title, author or producer. |
+| 31 | In the same folder open `pdf_conversion_log.csv` and `pdf_summary.txt`. | The log has 26 rows; the five damaged files say "not converted" with a reason. The summary states that nothing is added to the pages, that the PDFs contain message text and that they are not certified copies. Nothing new was written into `fixtures`. |
+| 32 | Start the conversion again and click **Cancel** while it runs. | Status reads "PDF conversion cancelled: N of 26 file(s) converted...". The new `pdf-...` folder has the finished PDFs, the log and no `.partial` file. |
+| 33 | Look at the text at the bottom of the main window. | It reads: "Drop a folder or an .rsmf file on this window to check it. Double-click a row to open the viewer. For local QC. No telemetry, tracking, or ads. Free and open source under the MIT License. Designed by Phil Weldon. Subject to verification by the user." |
+| 34 | Double-click `valid-2.0.rsmf` in the grid. | Messages are rounded bubbles with white text: Avery Example's in blue on the right, Blake Sample's in green on the left, each with the sender name and time on the bubble. |
+| 35 | With the PC's sound on, click **Scan Folder...**. | A soft click is heard as the folder picker opens. Press Cancel in the picker. |
+
+Record the Windows version, the release version and any step whose result differed.
