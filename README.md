@@ -6,7 +6,7 @@ A Windows desktop app and command-line tool that checks Relativity Short Message
 files on your own PC before they are loaded into Relativity. It runs entirely offline: no
 telemetry, tracking or ads.
 
-** Why?
+**Why?
 
 In eDiscovery, chat and text messages are often the most important evidence in a matter. They are also the least standardized: every forensic provider builds RSMF files its own way, and defects are common and hard to predict.
 
